@@ -6,6 +6,7 @@ import SettingsPage from "./pages/SettingsPage";
 import SignUpPage from "./pages/SignUpPage";
 import ProfilePage from "./pages/ProfilePage";
 import { useAuthStore } from "./store/useAuthStore";
+import { useThemeStore } from "./store/useThemeStore";
 import  { useEffect } from 'react';
 
 import {Loader} from "lucide-react";
@@ -13,8 +14,10 @@ import {Toaster} from "react-hot-toast";
 
 
 const App = () => {
-const {authUser, checkAuth, isCheckingAuth} = useAuthStore();
+const {authUser, checkAuth, isCheckingAuth,onLineUsers} = useAuthStore();
+const {theme} = useThemeStore();
 
+console.log({onLineUsers});
 useEffect(()=>{
   checkAuth()
 }, [checkAuth]
@@ -28,7 +31,7 @@ if(isCheckingAuth && !authUser ) return(
 )
   //axiosInstance.
   return (
-    <div >
+    <div data-theme={theme}>
       <Navbar/>
 
       <Routes>
