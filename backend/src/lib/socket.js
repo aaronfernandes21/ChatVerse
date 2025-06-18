@@ -29,3 +29,4 @@ export function setupSocket(server) {
 export function getReceiverSocketId(userId) {
     return userSocketMap[userId];
 }
+export { io };  
