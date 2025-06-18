@@ -39,9 +39,15 @@ const SignUpPage = () => {
         <div className="w-full max-w-md space-y-8">
             <div className="text-center mb-8">
                 <div className="flex flex-col items-center gap-2 group">
-                    <div className="size-12 rounded-xl bg-primary10 flex items-center justify-center group-hover:bg-primry/20 transition-colors">
-                    <MessageSquare className="size-6 text-pimary" />
-                   </div>
+                    <div
+  className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"
+>
+  <img
+    src="/logo(4).png"
+    alt="ChatVerse Logo"
+    className="w-15 h-15 object-contain"
+  />
+</div>
                    <h1 className="text-2xlfont-bold mt-2"> Create Account</h1>
                    <p className="text-base-conten/60">Get started with your free account</p>
                    </div>
@@ -131,8 +137,8 @@ const SignUpPage = () => {
                    </div>
                    </div>
                      <AuthImagePattern
-        title="Join our community"
-        subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
+        title="Be Part of The Verse"
+        subtitle="Powered by The Verse — ChatVerse connects you with friends, memories, and moments that matter."
       />
                    </div>
   );

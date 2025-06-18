@@ -1,41 +1,29 @@
-import { Users } from "lucide-react";
-
-const SidebarSkeleton = () => {
-  // Create 8 skeleton items
-  const skeletonContacts = Array(8).fill(null);
+const ChatVerseSkeleton = () => {
+  const letters = "ChatVerse".split("");
 
   return (
     <aside
-      className="h-full w-20 lg:w-72 border-r border-base-300 
-    flex flex-col transition-all duration-200"
+      className="h-full w-full flex flex-col items-center justify-center text-center p-6 space-y-6"
     >
-      {/* Header */}
-      <div className="border-b border-base-300 w-full p-5">
-        <div className="flex items-center gap-2">
-          <Users className="w-6 h-6" />
-          <span className="font-medium hidden lg:block">Contacts</span>
-        </div>
-      </div>
-
-      {/* Skeleton Contacts */}
-      <div className="overflow-y-auto w-full py-3">
-        {skeletonContacts.map((_, idx) => (
-          <div key={idx} className="w-full p-3 flex items-center gap-3">
-            {/* Avatar skeleton */}
-            <div className="relative mx-auto lg:mx-0">
-              <div className="skeleton size-12 rounded-full" />
-            </div>
-
-            {/* User info skeleton - only visible on larger screens */}
-            <div className="hidden lg:block text-left min-w-0 flex-1">
-              <div className="skeleton h-4 w-32 mb-2" />
-              <div className="skeleton h-3 w-16" />
-            </div>
+      {/* Animated Letter Blocks */}
+      <div className="flex gap-2 lg:gap-4 animate-pulse flex-wrap justify-center">
+        {letters.map((letter, idx) => (
+          <div
+            key={idx}
+            className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-base-300 flex items-center justify-center text-lg font-bold text-base-content shadow-sm"
+          >
+            {letter}
           </div>
         ))}
+      </div>
+
+      {/* Tagline Skeleton */}
+      <div className="space-y-2">
+        <div className="skeleton h-4 w-48 mx-auto rounded" />
+        <div className="skeleton h-4 w-32 mx-auto rounded" />
       </div>
     </aside>
   );
 };
 
-export default SidebarSkeleton;
+export default ChatVerseSkeleton;

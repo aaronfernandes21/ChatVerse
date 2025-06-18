@@ -6,8 +6,13 @@ export default {
     './index.html',            // if you have a root index.html
     './src/**/*.{js,jsx,ts,tsx}', // all your React components and JS files
   ],
-  theme: {
-    extend: {},
+   theme: {
+    extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        playfair: ['"Playfair Display"', 'serif'],
+      },
+    },
   },
   plugins: [daisyui],
   daisyui: {

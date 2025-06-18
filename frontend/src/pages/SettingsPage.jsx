@@ -11,8 +11,9 @@ const SettingsPage = () => {
   const { theme, setTheme } = useThemeStore();
 
   return (
-    <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl">
+    <div className="h-full min-h-screen container mx-auto px-4 pt-20 max-w-5xl">
       <div className="space-y-6">
+        {/* Theme Section */}
         <div className="flex flex-col gap-1">
           <h2 className="text-lg font-semibold">Theme</h2>
           <p className="text-sm text-base-content/70">Choose a theme for your chat interface</p>
@@ -22,10 +23,9 @@ const SettingsPage = () => {
           {THEMES.map((t) => (
             <button
               key={t}
-              className={`
-                group flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors
-                ${theme === t ? "bg-base-200" : "hover:bg-base-200/50"}
-              `}
+              className={`group flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors ${
+                theme === t ? "bg-base-200" : "hover:bg-base-200/50"
+              }`}
               onClick={() => setTheme(t)}
             >
               <div className="relative h-8 w-full rounded-md overflow-hidden" data-theme={t}>
@@ -57,7 +57,7 @@ const SettingsPage = () => {
                       J
                     </div>
                     <div>
-                      <h3 className="font-medium text-sm">John Doe</h3>
+                      <h3 className="font-medium text-sm">BabuRao Apte</h3>
                       <p className="text-xs text-base-content/70">Online</p>
                     </div>
                   </div>
@@ -71,17 +71,17 @@ const SettingsPage = () => {
                       className={`flex ${message.isSent ? "justify-end" : "justify-start"}`}
                     >
                       <div
-                        className={`
-                          max-w-[80%] rounded-xl p-3 shadow-sm
-                          ${message.isSent ? "bg-primary text-primary-content" : "bg-base-200"}
-                        `}
+                        className={`max-w-[80%] rounded-xl p-3 shadow-sm ${
+                          message.isSent ? "bg-primary text-primary-content" : "bg-base-200"
+                        }`}
                       >
                         <p className="text-sm">{message.content}</p>
                         <p
-                          className={`
-                            text-[10px] mt-1.5
-                            ${message.isSent ? "text-primary-content/70" : "text-base-content/70"}
-                          `}
+                          className={`text-[10px] mt-1.5 ${
+                            message.isSent
+                              ? "text-primary-content/70"
+                              : "text-base-content/70"
+                          }`}
                         >
                           12:00 PM
                         </p>
@@ -109,8 +109,28 @@ const SettingsPage = () => {
             </div>
           </div>
         </div>
+
+        {/* Featuring WatchVerse Section */}
+        <div className="mt-14 p-6 border border-base-300 rounded-xl bg-base-100 shadow-lg">
+          <h4 className="text-xs font-semibold uppercase text-yellow-500 mb-2 tracking-wider">
+            Featuring
+          </h4>
+          <h3 className="text-lg font-bold mb-1 text-base-content">WatchVerse by The Verse</h3>
+          <p className="text-sm text-base-content/70 mb-3">
+            Dive into a new way to explore and stay updated. WatchVerse is your go-to destination for movie ratings, cast details, trailers, and everything cinema — brought to you by The Verse.
+          </p>
+          <a
+            href="https://watchverse-navy.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 text-sm font-medium text-primary hover:underline"
+          >
+            👉 Check out WatchVerse now
+          </a>
+        </div>
       </div>
     </div>
   );
 };
+
 export default SettingsPage;
