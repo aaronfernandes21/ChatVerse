@@ -15,7 +15,10 @@ import { app, server } from "./lib/socket.js";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 
-app.use(express.json());
+// Increase JSON and URL-encoded payload limits
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
+
 app.use(cookieParser());
 app.use(
   cors({
